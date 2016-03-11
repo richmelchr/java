@@ -8,7 +8,7 @@ import java.util.ArrayList; //used by arrayList()
 import java.util.HashMap; //used by hashMap()
 import java.util.Set; //used by hashIterator()
 
-public class notes {
+public class Notes {
 	Scanner scan = new Scanner(System.in);
 
 	enum Season {winter, spring, summer, fall}
@@ -28,7 +28,7 @@ public class notes {
 	int[] intArray = {1,2,3}; //used by printArray()
 	int intArray2[] = {3,2,1}; //also valid array, does same exact thing.
 
-	
+
 
 	public static void cleanScanner() { //the most simple scanner for integers
 		Scanner scan = new Scanner(System.in);//must be inside a static context to be refrenced by a static contex
@@ -45,9 +45,7 @@ public class notes {
 		thisMap.put("Washington", "Olympia");
 
 		Set<String> keys = thisMap.keySet();
-		Iterator<String> iterator = keys.iterator();
-		while (iterator.hasNext()) {
-			String value = iterator.next();
+		for (String value : keys) {
 			System.out.println(value + " : " + thisMap.get(value));
 		}
 	}
@@ -58,9 +56,7 @@ public class notes {
 		list.add("Arizona");
 		System.out.println(list);
 
-		ListIterator<String> iterator = list.listIterator(); //careful!, listIterator first char must be lower case 
-		while (iterator.hasNext()) {
-			String value = iterator.next();
+		for (String value : list) {
 			System.out.println(value);
 		}
 	}
@@ -90,7 +86,7 @@ public class notes {
 		list.add("Arizona");
 
 		System.out.println(list);
-		
+
 		list.add("Alaska");
 		System.out.println(list);
 
@@ -105,7 +101,7 @@ public class notes {
 	}
 	public static void playArray() {
 		String[][] states = new String[3][2];
-		
+
 		states[0][0] = "Arizona";
 		states[0][1] = "Phoenix";
 		states[1][0] = "Oregon";
@@ -113,15 +109,15 @@ public class notes {
 		states[2][0] = "Washington";
 		states[2][1] = "Olympia";
 
-		for (int i = 0; i < states.length; i++) {
+		for (String[] state : states) {
 			StringBuilder sb = new StringBuilder();
-			for (int j = 0; j < states[i].length; j++) {
+			for (int j = 0; j < state.length; j++) {
 				if (j == 0) {
 					sb.append("the capitol of ");
 				} else {
 					sb.append(" is ");
 				}
-				sb.append(states[i][j]);
+				sb.append(state[j]);
 			}
 			System.out.println(sb);
 		}
@@ -136,20 +132,19 @@ public class notes {
 		} catch (ArrayIndexOutOfBoundsException e) { //this is the exception that will catch
 			System.out.println("Attempted to call array that doesn't exist");
 			e.printStackTrace();
-		} catch ( RuntimeException e ) { //least specific exceptions always come last, like a rock filter. this is the most general exception 
+		} catch ( RuntimeException e ) { //least specific exceptions always come last, like a rock filter. this is the most general exception
 		  	System.out.println("runtime exception!");
 		  	e.printStackTrace();
 		}
 	}
-	private static double addValues(double d1, double d2) throws NumberFormatException { //used by //newCalc() 
-		double result = d1 + d2;
-		return result;
+	private static double addValues(double d1, double d2) throws NumberFormatException { //used by //newCalc()
+		return d1 + d2;
 	}
 	public void stringMethods() {
 		System.out.println("length of string: " + outSideVar.length());
 
 		int position = outSideVar.indexOf(" is "); //take note of spaces
-		System.out.println("position of \"is\": " + position); 
+		System.out.println("position of \"is\": " + position);
 
 		String sub = outSideVar.substring(position + 1, position + 3);
 		System.out.println(sub);
@@ -186,8 +181,8 @@ public class notes {
 		System.out.println("num1 + num2 = " + result);
 	}
 	void printArray() { //bear minimum
-		for (int i = 0; i < intArray.length; i++) {
-			System.out.print(intArray[i] + " ");
+		for (int anIntArray : intArray) {
+			System.out.print(anIntArray + " ");
 		}
 	}
 	public static double manyValues(double ... values) { //used by callManyValues() | pass in much as you want of type double
@@ -205,8 +200,8 @@ public class notes {
 		System.out.println("this method has been called");
 	}
 	public void loops() { //all posible loops through arrays. only preference
-		for (int i = 0; i < loopMonths.length; i++) {
-			System.out.print(loopMonths[i] + " ");
+		for (String loopMonth : loopMonths) {
+			System.out.print(loopMonth + " ");
 		}
 		//---------------------------------------------
 		for (String month : loopMonths) { //for each month in the loopMonths array
@@ -232,7 +227,7 @@ public class notes {
 	}
 	public void moreEnumStuff() {
 		month monthSelect2 = month.feb; //call from another file
-		month monthSelect = notes.month.feb; //call from same file
+		month monthSelect = Notes.month.feb; //call from same file
 
 		switch(monthSelect2) {
 			case jan:
@@ -288,7 +283,7 @@ public class notes {
         System.out.println(outSideVar);
     }
     public void convert() {
-    	Double converted = new Double(beforeConvert);
+    	Double converted = beforeConvert;
     	System.out.println(converted);
     }
     public void anotherConvert() {
@@ -316,7 +311,7 @@ public class notes {
     public void moreLogic() {
     	int x = 1;
     	boolean trueThat = (x != 0); //value of trueThat is now "true"
-    	
+
     	String balls = "true"; //caps irrelevant, anything but true will cause .parseBoolean to evaluate false
     	boolean boolean1 = Boolean.parseBoolean(balls); //boolean1 value set to true
 

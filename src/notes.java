@@ -26,7 +26,7 @@ public class Notes {
 	char dollarSign = '\u0024'; //escape sequence
 	Date myDate = new Date();
 	int[] intArray = {1,2,3}; //used by printArray()
-	int intArray2[] = {3,2,1}; //also valid array, does same exact thing.
+	int intArray2[] = {3,2,1}; //also valid array, does same exact thing
 
 
 

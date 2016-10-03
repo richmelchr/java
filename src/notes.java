@@ -8,7 +8,7 @@ import java.util.ArrayList; //used by arrayList()
 import java.util.HashMap; //used by hashMap()
 import java.util.Set; //used by hashIterator()
 
-public class Notes {
+public class notes {
 	Scanner scan = new Scanner(System.in);
 
 	enum Season {winter, spring, summer, fall}
@@ -227,7 +227,7 @@ public class Notes {
 	}
 	public void moreEnumStuff() {
 		month monthSelect2 = month.feb; //call from another file
-		month monthSelect = Notes.month.feb; //call from same file
+		month monthSelect = notes.month.feb; //call from same file
 
 		switch(monthSelect2) {
 			case jan:

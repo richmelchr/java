@@ -1,17 +1,20 @@
 package Data_Structures;
 
+// best resource for Java linked list implementation below
+// https://www.cs.cmu.edu/~adamchik/15-121/lectures/Linked%20Lists/linked%20lists.html
+
 public class Link {
 
-    public String bookName;
-    public int millionsSold;
+    String bookName;
+    private int millionsSold;
 
-    public Link next;
-    public Link(String bookName, int millionsSold) {
+    Link next;
+    Link(String bookName, int millionsSold) {
         this.bookName = bookName;
         this.millionsSold = millionsSold;
     }
 
-    public void display() {
+    void display() {
         System.out.println(bookName + ": " + millionsSold + ",000,000");
     }
 
@@ -35,17 +38,17 @@ public class Link {
 
 class LinkList {
 
-    public Link firstLink;
+    private Link firstLink;
 
     LinkList() {
         firstLink = null;
     } // by default objects get a value of null. this constructor is just for demonstration
 
-    public boolean isEmpty() {
+    boolean isEmpty() {
         return (firstLink == null);
     }
 
-    public void insertFirstLink(String bookName, int millionsSold) {
+    void insertFirstLink(String bookName, int millionsSold) {
         Link newLink = new Link(bookName, millionsSold);
         newLink.next = firstLink;
         firstLink = newLink;
@@ -61,7 +64,7 @@ class LinkList {
         return linkReference;
     }
 
-    public void display() {
+    void display() {
         Link theLink = firstLink;
 
         while (theLink != null) {
@@ -73,7 +76,7 @@ class LinkList {
         }
     }
 
-    public Link find(String bookName) {
+    Link find(String bookName) {
         Link theLink = firstLink;
         if (!isEmpty()) {
             while (theLink.bookName != bookName) {

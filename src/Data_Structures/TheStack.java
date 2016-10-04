@@ -22,7 +22,7 @@ public class TheStack {
 
     private int topOfStack = -1;
 
-    TheStack(int size){
+    private TheStack(int size){
 
         stackSize = size;
 
@@ -35,7 +35,7 @@ public class TheStack {
 
     }
 
-    public void push(String input){
+    private void push(String input){
 
         if(topOfStack+1 < stackSize){
 
@@ -51,7 +51,7 @@ public class TheStack {
 
     }
 
-    public String pop(){
+    private String pop(){
 
         if(topOfStack >= 0){
 
@@ -78,7 +78,7 @@ public class TheStack {
 
     }
 
-    public String peek(){
+    private String peek(){
 
         displayTheStack();
 
@@ -88,19 +88,19 @@ public class TheStack {
 
     }
 
-    public void pushMany(String multipleValues){
+    private void pushMany(String multipleValues){
 
         String[] tempString = multipleValues.split(" ");
 
-        for(int i = 0; i < tempString.length; i++){
+        for (String aTempString : tempString) {
 
-            push(tempString[i]);
+            push(aTempString);
 
         }
 
     }
 
-    public void popAll(){
+    private void popAll(){
 
         for(int i = topOfStack; i >= 0; i--){
 
@@ -110,7 +110,7 @@ public class TheStack {
 
     }
 
-    public void popDisplayAll(){
+    private void popDisplayAll(){
 
         String theReverse = "";
 
@@ -126,7 +126,7 @@ public class TheStack {
 
     }
 
-    public void displayTheStack(){
+    private void displayTheStack(){
 
         for(int n = 0; n < 61; n++)System.out.print("-");
 
